@@ -1,34 +1,87 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1 align ="center" > Project Frontend </h1>
 
-## Getting Started
+<h4 align ="center"> Frontend part of the web system project </h4>
 
-First, run the development server:
+<br/>
+<p align="center">
+    <a href="https://github.com/ebercalderon/projectBackend">
+      <img src="https://img.shields.io/badge/project-Back-blue" /></a> &#xa0; 
+    <a href="https://github.com/ebercalderon/projectAnalytics">
+      <img src="https://img.shields.io/badge/project-Analytics-blueviolet" /></a> &#xa0;
+    <a href="https://github.com/ebercalderon/projectGateway">
+      <img src="https://img.shields.io/badge/project-Gateway-blueviolet" /></a>
+</p>
+<br/>
 
-```bash
-npm run dev
-# or
-yarn dev
+  * [Configuration and Setup](#configuration-and-setup)
+  * [Key Features](#key-features)
+  * [Technologies used](#technologies-used)
+  * [Screenshots](#screenshots)
+  * [Acknowledgments](#acknowledgments)
+  * [Contributors](#contributors)
+  * [License](#license)
+
+
+## Configuration and Setup
+
+In order to run this project locally, simply fork and clone the repository or download as zip and unzip on your machine.
+
+- Open the project in your prefered code editor.
+- Go to terminal -> New terminal (If you are using VS code)
+
+In the terminal to start
+
+```cmd
+$ node --version
+$ npm install 
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Config.env
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+- Create your .env
+- Change the following credentials
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+```
+#  ---  example  ---
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+ERPGATEWAY_URL=http://localhost:0000/
+```
 
-## Learn More
+Deploy and run
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+$ npm run dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+##  Key Features
 
-## Deploy on Vercel
+- Coming soon
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+##  Technologies used
+
+This project was created using the following technologies.
+
+
+- [Go](https://go.dev/) - Is an open source programming language that makes it easy to build simple, reliable, and efficient software.
+
+ 
+##  Screenshots
+
+- Coming soon
+
+
+## Acknowledgments
+
+- Github: [@Chemchu-Gus](https://github.com/Chemchu)
+
+
+## Contributors
+
+- Github: [@Eber](https://github.com/ebercalderon)
+
+
+## License
+
+ThePOS is open-sourced software licensed under the [MIT license](https://github.com/ebercalderon/projectAnalytics/blob/main/LICENSE).
