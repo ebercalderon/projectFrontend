@@ -1,0 +1,3 @@
+## Nombre ".env.local"
+
+ERPGATEWAY_URL=http://xxx.xxx.x.xxx:xxxx/
