@@ -59,35 +59,35 @@ const VerCierre = (props: { showModal: Function, cierre: Cierre, tpv: string }) 
                                     TPV: {props.tpv}
                                 </span>
                                 <span>
-                                    Venta total: {props.cierre.ventasTotales.toFixed(2)}S/
+                                    Venta total: S/ {props.cierre.ventasTotales.toFixed(2)}
                                 </span>
                                 <span>
-                                    Ventas en efectivo: {props.cierre.ventasEfectivo.toFixed(2)}S/
+                                    Ventas en efectivo: S/ {props.cierre.ventasEfectivo.toFixed(2)}
                                 </span>
                                 <span>
-                                    Ventas en tarjeta: {props.cierre.ventasTarjeta.toFixed(2)}S/
+                                    Ventas en tarjeta: S/ {props.cierre.ventasTarjeta.toFixed(2)}
                                 </span>
                                 {
                                     props.cierre.beneficio &&
                                     props.cierre.beneficio > 0 &&
                                     <span>
-                                        Beneficio: {props.cierre.beneficio.toFixed(2)}S/
+                                        Beneficio: S/ {props.cierre.beneficio.toFixed(2)}
                                     </span>
                                 }
                                 <span>
-                                    Caja inicial: {props.cierre.cajaInicial.toFixed(2)}S/
+                                    Caja inicial: S/ {props.cierre.cajaInicial.toFixed(2)}
                                 </span>
                                 <span>
-                                    Caja final esperada: {props.cierre.dineroEsperadoEnCaja.toFixed(2)}S/
+                                    Caja final esperada: S/ {props.cierre.dineroEsperadoEnCaja.toFixed(2)}
                                 </span>
                                 <span>
-                                    Caja final real: {props.cierre.dineroRealEnCaja.toFixed(2)}S/
+                                    Caja final real: S/ {props.cierre.dineroRealEnCaja.toFixed(2)}
                                 </span>
                                 <span>
-                                    Dinero retirado: {props.cierre.dineroRetirado.toFixed(2)}S/
+                                    Dinero retirado: S/ {props.cierre.dineroRetirado.toFixed(2)}
                                 </span>
                                 <span>
-                                    Fondo de caja dejado: {props.cierre.fondoDeCaja.toFixed(2)}S/
+                                    Fondo de caja dejado: S/ {props.cierre.fondoDeCaja.toFixed(2)}
                                 </span>
                                 <span>
                                     Abierto por: {props.cierre.abiertoPor.nombre}

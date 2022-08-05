@@ -53,22 +53,22 @@ const Ticket = React.forwardRef((props: { pagoCliente: CustomerPaymentInformatio
                     {props.pagoCliente.tipo}
                 </div>
                 <div>
-                    Precio total: {props.pagoCliente.precioTotal.toFixed(2)}S/
+                    Precio total: S/ {props.pagoCliente.precioTotal.toFixed(2)}
                 </div>
                 {
                     props.pagoCliente.pagoEnEfectivo > 0 &&
                     <div>
-                        Pagado con efectivo: {props.pagoCliente.pagoEnEfectivo.toFixed(2)}S/
+                        Pagado con efectivo: S/ {props.pagoCliente.pagoEnEfectivo.toFixed(2)}
                     </div>
                 }
                 {
                     props.pagoCliente.pagoEnTarjeta > 0 &&
                     <div>
-                        Pagado con tarjeta: {props.pagoCliente.pagoEnTarjeta.toFixed(2)}S/
+                        Pagado con tarjeta: S/ {props.pagoCliente.pagoEnTarjeta.toFixed(2)}
                     </div>
                 }
                 <div>
-                    Cambio: {props.pagoCliente.cambio.toFixed(2)}S/
+                    Cambio: S/ {props.pagoCliente.cambio.toFixed(2)}
                 </div>
             </div>
             <div className="flex justify-center">
@@ -103,7 +103,7 @@ const GenerarFilaProducto = (props: { numFila: number, nombreProducto: string, c
                 {props.cantidad}
             </div>
             <div className="w-1/5 text-center">
-                {(props.precio * props.cantidad).toFixed(2)}S/
+                S/ {(props.precio * props.cantidad).toFixed(2)}
             </div>
         </div>
     );

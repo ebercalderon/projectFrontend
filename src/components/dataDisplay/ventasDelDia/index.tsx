@@ -38,7 +38,7 @@ const VentasDelDia = (props: { data: Summary | undefined, titulo: string, ejeX: 
                     <p className="label text-xl font-semibold">{`${horaInicial}:00 - ${String(horaFinal) + ":00"}`}</p>
                     {
                         payload &&
-                        <p className="label text-base">{`Ventas: ${Number(payload[0].value).toFixed(2)}S/`}</p>
+                        <p className="label text-base">S/ {`Ventas: ${Number(payload[0].value).toFixed(2)}`}</p>
                     }
                 </div>
             );

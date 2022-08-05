@@ -63,21 +63,21 @@ const SummaryCard = (props: { titulo: string, data: Summary | undefined }) => {
         <div className="md:p-6 p-4 bg-white shadow-lg hover:shadow-xl rounded-lg flex justify-between dark:bg-gray-800 md:items-center gap-4">
             <div className="flex flex-col">
                 <span className="text-2xl text-gray-700 font-semibold pb-2">Total</span>
-                <span>Ventas: {props.data.totalVentas.toFixed(2)}S/</span>
-                <span>Efectivo: {props.data.totalEfectivo.toFixed(2)}S/</span>
-                <span>Tarjeta: {props.data.totalTarjeta.toFixed(2)}S/</span>
+                <span>Ventas: S/ {props.data.totalVentas.toFixed(2)}</span>
+                <span>Efectivo: S/ {props.data.totalEfectivo.toFixed(2)}</span>
+                <span>Tarjeta: S/ {props.data.totalTarjeta.toFixed(2)}</span>
             </div>
             <div className="flex flex-col">
                 <span className="text-2xl text-gray-700 font-semibold pb-2">Mañana</span>
-                <span>Ventas: {totalMañana.toFixed(2)}S/</span>
-                <span>Efectivo: {totalMañanaEfectivo.toFixed(2)}S/</span>
-                <span>Tarjeta: {totalMañanaTarjeta.toFixed(2)}S/</span>
+                <span>Ventas: S/ {totalMañana.toFixed(2)}</span>
+                <span>Efectivo: S/ {totalMañanaEfectivo.toFixed(2)}</span>
+                <span>Tarjeta: S/ {totalMañanaTarjeta.toFixed(2)}</span>
             </div>
             <div className="flex flex-col">
                 <span className="text-2xl text-gray-700 font-semibold pb-2">Tarde</span>
-                <span>Ventas: {totalTarde.toFixed(2)}S/</span>
-                <span>Efectivo: {totalTardeEfectivo.toFixed(2)}S/</span>
-                <span>Tarjeta: {totalTardeTarjeta.toFixed(2)}S/</span>
+                <span>Ventas: S/ {totalTarde.toFixed(2)}</span>
+                <span>Efectivo: S/ {totalTardeEfectivo.toFixed(2)}</span>
+                <span>Tarjeta: S/ {totalTardeTarjeta.toFixed(2)}</span>
             </div>
         </div>
 

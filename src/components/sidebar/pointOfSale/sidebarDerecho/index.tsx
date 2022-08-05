@@ -344,17 +344,17 @@ const SidebarDerecho = React.memo((props: {
                             <div className="flex gap-2 justify-end ml-auto">
                                 <div className="text-right w-full text-red-500 line-through">
                                     {/*Cambiar en caso de que la cesta tenga productos y calcular el valor total*/}
-                                    {ProductosEnCarrito.length <= 0 ? 0.00 : PrecioTotal.toFixed(2)} S/
+                                    S/ {ProductosEnCarrito.length <= 0 ? 0.00 : PrecioTotal.toFixed(2)}
                                 </div>
                                 <div className="text-right w-full">
                                     {/*Cambiar en caso de que la cesta tenga productos y calcular el valor total*/}
-                                    {ProductosEnCarrito.length <= 0 ? 0.00 : PrecioTotalFinal.toFixed(2)} S/
+                                    S/ {ProductosEnCarrito.length <= 0 ? 0.00 : PrecioTotalFinal.toFixed(2)}
                                 </div>
                             </div>
                             :
                             <div className="text-right w-full">
                                 {/*Cambiar en caso de que la cesta tenga productos y calcular el valor total*/}
-                                {ProductosEnCarrito.length <= 0 ? 0.00 : PrecioTotal.toFixed(2)} S/
+                                S/ {ProductosEnCarrito.length <= 0 ? 0.00 : PrecioTotal.toFixed(2)}
                             </div>
                     }
                 </div>

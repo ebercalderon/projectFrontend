@@ -6,6 +6,7 @@ const FinanceCard = (props: { titulo: string, unidad?: string, dataActual: strin
     const [crecimiento, setCrecimiento] = useState<string>("0")
     const [isCrecimientoPositivo, setIsCrecimientoPositivo] = useState<boolean>(true);
     const [error, setError] = useState<boolean>(false);
+    const moneda = props.unidad?.length;
 
     useEffect(() => {
         try {
@@ -54,10 +55,17 @@ const FinanceCard = (props: { titulo: string, unidad?: string, dataActual: strin
             </div>
             <div className="flex flex-col items-center">
                 <p className="text-gray-700 dark:text-gray-100 text-4xl text-left font-bold my-4">
+                    {!moneda ? (
+                        <span className="text-sm">
+                        {"S/"}
+                        </span>
+                    ) : null}
                     {props.dataActual}
-                    <span className="text-sm">
-                        {props.unidad || "S/"}
-                    </span>
+                    {moneda ? (
+                        <span className="text-sm">
+                        {props.unidad}
+                        </span>
+                    ) : null}
                 </p>
             </div>
             {

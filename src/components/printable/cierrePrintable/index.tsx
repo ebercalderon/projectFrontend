@@ -18,27 +18,27 @@ const CierrePrintable = React.forwardRef((props: { tpv: string, cierre: Cierre, 
                     <hr className="py-1" />
                     <div className="flex w-full h-full justify-between align-middle">
                         <p>Caja inicial</p>
-                        <p className="self-center">{props.cierre.cajaInicial.toFixed(2)}S/</p>
+                        <p className="self-center">S/ {props.cierre.cajaInicial.toFixed(2)}</p>
                     </div>
                     <div className="flex w-full h-full justify-between align-middle">
                         <p>Caja final esperada</p>
-                        <p className="self-center">{props.cierre.dineroEsperadoEnCaja.toFixed(2)}S/</p>
+                        <p className="self-center">S/ {props.cierre.dineroEsperadoEnCaja.toFixed(2)}</p>
                     </div>
                     <div className="flex w-full h-full justify-between align-middle">
                         <p>Caja final real</p>
-                        <p className="self-center">{props.cierre.dineroRealEnCaja.toFixed(2)}S/</p>
+                        <p className="self-center">S/ {props.cierre.dineroRealEnCaja.toFixed(2)}</p>
                     </div>
 
                     {
                         props.cierre.dineroRealEnCaja - props.cierre.dineroEsperadoEnCaja >= 0 ?
                             <div className="flex w-full h-full justify-between align-middle">
                                 <p>Sobra</p>
-                                <p className="self-center">{(props.cierre.dineroRealEnCaja - props.cierre.dineroEsperadoEnCaja).toFixed(2)}S/</p>
+                                <p className="self-center">S/ {(props.cierre.dineroRealEnCaja - props.cierre.dineroEsperadoEnCaja).toFixed(2)}</p>
                             </div>
                             :
                             <div className="flex w-full h-full justify-between align-middle">
                                 <p>Falta</p>
-                                <p className="self-center">{(props.cierre.dineroRealEnCaja - props.cierre.dineroEsperadoEnCaja).toFixed(2)}S/</p>
+                                <p className="self-center">S/ {(props.cierre.dineroRealEnCaja - props.cierre.dineroEsperadoEnCaja).toFixed(2)}</p>
                             </div>
                     }
 
@@ -46,27 +46,27 @@ const CierrePrintable = React.forwardRef((props: { tpv: string, cierre: Cierre, 
 
                     <div className="flex w-full h-full justify-between align-middle">
                         <p>Total vendido</p>
-                        <p className="self-center">{props.cierre.ventasTotales.toFixed(2)}S/</p>
+                        <p className="self-center">S/ {props.cierre.ventasTotales.toFixed(2)}</p>
                     </div>
 
                     <div className="flex w-full h-full justify-between align-middle">
                         <p>Total en efectivo</p>
-                        <p className="self-center">{props.cierre.ventasEfectivo.toFixed(2)}S/</p>
+                        <p className="self-center">S/ {props.cierre.ventasEfectivo.toFixed(2)}</p>
                     </div>
 
                     <div className="flex w-full h-full justify-between align-middle">
                         <p>Total en tarjeta</p>
-                        <p className="self-center">{props.cierre.ventasTarjeta.toFixed(2)}S/</p>
+                        <p className="self-center">S/ {props.cierre.ventasTarjeta.toFixed(2)}</p>
                     </div>
                     <hr className="py-1" />
 
                     <div className="flex w-full h-full justify-between align-middle">
                         <p>Dinero retirado de caja</p>
-                        <p className="self-center">{props.cierre.dineroRetirado.toFixed(2)}S/</p>
+                        <p className="self-center">S/ {props.cierre.dineroRetirado.toFixed(2)}</p>
                     </div>
                     <div className="flex w-full h-full justify-between align-middle">
                         <p>Fondo de caja dejado</p>
-                        <p className="self-center">{props.cierre.fondoDeCaja.toFixed(2)}S/</p>
+                        <p className="self-center">S/ {props.cierre.fondoDeCaja.toFixed(2)}</p>
                     </div>
                 </div>
             </div>
@@ -95,7 +95,7 @@ const GenerarFila = (props: { numFila: number, nombreProducto: string, cantidad:
                 {props.cantidad}
             </div>
             <div className="w-1/5 text-center">
-                {(props.precio * props.cantidad).toFixed(2)}S/
+                S/ {(props.precio * props.cantidad).toFixed(2)}
             </div>
         </div>
     );

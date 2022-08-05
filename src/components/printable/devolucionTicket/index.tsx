@@ -39,7 +39,7 @@ const DevolucionTicket = React.forwardRef((props: { devolucion: Devolucion, fech
                 </div>
             </div>
             <div className="flex flex-col justify-evenly w-full h-auto items-center">
-                Dinero devuelto al cliente: {props.devolucion.dineroDevuelto.toFixed(2)}S/
+                Dinero devuelto al cliente: S/ {props.devolucion.dineroDevuelto.toFixed(2)}
             </div>
             <div className="flex justify-center">
                 <Image src={props.qrImage} layout="fixed" width={50} height={50} />
@@ -70,10 +70,10 @@ const GenerarFilaProductoDevuelto = (props: { numFila: number, productoDevuelto:
                 {props.productoDevuelto.cantidadDevuelta}
             </div>
             <div className="w-1/5 text-right">
-                {props.productoDevuelto.precioFinal}S/
+                S/ {props.productoDevuelto.precioFinal}
             </div>
             <div className="w-1/5 text-right">
-                {props.productoDevuelto.cantidadDevuelta * props.productoDevuelto.precioFinal}S/
+                S/ {props.productoDevuelto.cantidadDevuelta * props.productoDevuelto.precioFinal}
             </div>
         </div>
     );

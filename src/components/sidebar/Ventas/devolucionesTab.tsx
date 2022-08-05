@@ -156,7 +156,7 @@ const FilaReembolso = (props: { devolucion: Devolucion }) => {
             </div>
             <div className="py-3 border-gray-200 text-lg">
                 <p className="whitespace-no-wrap">
-                    {props.devolucion.dineroDevuelto.toFixed(2)}S/
+                    S/ {props.devolucion.dineroDevuelto.toFixed(2)}
                 </p>
             </div>
         </div>

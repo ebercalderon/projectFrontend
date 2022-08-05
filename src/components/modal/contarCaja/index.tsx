@@ -120,7 +120,7 @@ const ContarMoneda = (props: { valorMoneda: number, desglose: Map<number, number
     return (
         <div className="flex gap-10 items-center text-lg">
             <input type="text" className="p-1 outline-blue-500 rounded-md border border-blue-400 w-20 text-center bg-slate-100" value={cantidad} onChange={(e) => ValueInput(e.target.value)} />
-            {props.valorMoneda}S/
+                S/ {props.valorMoneda}
         </div>
     )
 }

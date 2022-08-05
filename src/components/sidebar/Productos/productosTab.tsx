@@ -196,7 +196,7 @@ const FilaProducto = (props: { producto: Producto, productos: Producto[], setAll
                     {producto.nombre}
                 </div>
                 <div className="w-1/5 text-left">
-                    {producto.precioVenta.toFixed(2)}S/
+                    S/ {producto.precioVenta.toFixed(2)}
                 </div>
                 <div className="w-1/5 text-left truncate">
                     {producto.familia}

@@ -97,7 +97,7 @@ const DevolucionModal = (props: { devolucion: Devolucion | undefined, setModal: 
                                             <p>Empleado: {props.devolucion.trabajador.nombre}</p>
                                             <p>Fecha de la devolución: {fecha.toLocaleString()}</p>
                                             <p>TPV: {tpvDevolucion?.nombre}</p>
-                                            <p>Efectivo devuelto: {props.devolucion.dineroDevuelto.toFixed(2)}S/</p>
+                                            <p>Efectivo devuelto: S/ {props.devolucion.dineroDevuelto.toFixed(2)}</p>
                                         </div>
                                     </div>
                                 </span>
@@ -112,10 +112,10 @@ const DevolucionModal = (props: { devolucion: Devolucion | undefined, setModal: 
                                             <p>Fecha de la venta: {fechaVenta.toLocaleString()}</p>
                                             <p>TPV: {tpvVenta?.nombre}</p>
                                             <p>Tipo de pago: {props.devolucion.ventaOriginal.tipo}</p>
-                                            <p>Total: {props.devolucion.ventaOriginal.precioVentaTotal.toFixed(2)}S/</p>
-                                            <p>Total pagado en efectivo: {props.devolucion.ventaOriginal.dineroEntregadoEfectivo.toFixed(2)}S/</p>
-                                            <p>Total pagado en tarjeta: {props.devolucion.ventaOriginal.dineroEntregadoTarjeta.toFixed(2)}S/</p>
-                                            <p>Cambio: {props.devolucion.ventaOriginal.cambio.toFixed(2)}S/</p>
+                                            <p>Total: S/ {props.devolucion.ventaOriginal.precioVentaTotal.toFixed(2)}</p>
+                                            <p>Total pagado en efectivo: S/ {props.devolucion.ventaOriginal.dineroEntregadoEfectivo.toFixed(2)}</p>
+                                            <p>Total pagado en tarjeta: S/ {props.devolucion.ventaOriginal.dineroEntregadoTarjeta.toFixed(2)}</p>
+                                            <p>Cambio: S/ {props.devolucion.ventaOriginal.cambio.toFixed(2)}</p>
                                         </div>
                                     </div>
                                 </span>
@@ -186,7 +186,7 @@ const GenerarFilaDevolucion = (props: { numFila: number, producto: ProductoDevue
                     {props.producto.cantidadDevuelta}
                 </div>
                 <div className="w-1/4 text-center">
-                    {(props.producto.precioFinal * props.producto.cantidadDevuelta).toFixed(2)}S/
+                    S/ {(props.producto.precioFinal * props.producto.cantidadDevuelta).toFixed(2)}
                 </div>
             </div>
             <hr />

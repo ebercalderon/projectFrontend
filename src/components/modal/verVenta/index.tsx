@@ -122,16 +122,16 @@ const VerVenta = (props: { venta: Venta | undefined, setModal: Function }) => {
                                         Tipo de venta: {props.venta.tipo}
                                     </span>
                                     <span>
-                                        Valor total: {props.venta.precioVentaTotal}S/
+                                        Valor total: S/ {props.venta.precioVentaTotal}
                                     </span>
                                     <span>
-                                        Cantidad pagada con efectivo: {props.venta.dineroEntregadoEfectivo}S/
+                                        Cantidad pagada con efectivo: S/ {props.venta.dineroEntregadoEfectivo}
                                     </span>
                                     <span>
-                                        Cantidad pagada con tarjeta: {props.venta.dineroEntregadoTarjeta}S/
+                                        Cantidad pagada con tarjeta: S/ {props.venta.dineroEntregadoTarjeta}
                                     </span>
                                     <span>
-                                        Cambio: {props.venta.cambio}S/
+                                        Cambio: S/ {props.venta.cambio}
                                     </span>
                                     <span>
                                         TPV: {`${tpv?.nombre || `Cargando...`}`}
@@ -154,7 +154,7 @@ const VerVenta = (props: { venta: Venta | undefined, setModal: Function }) => {
                                         </>
                                     }
                                     <span>
-                                        Descuento en efectivo aplicado: {props.venta.descuentoEfectivo}S/
+                                        Descuento en efectivo aplicado: S/ {props.venta.descuentoEfectivo}
                                     </span>
                                     <span>
                                         Porcentaje de descuento aplicado: {props.venta.descuentoPorcentaje}%
@@ -241,7 +241,7 @@ const GenerarFilaProducto = (props: { numFila: number, producto: ProductoVendido
                     {props.producto.dto}
                 </div>
                 <div className="w-1/4 text-center">
-                    {(precio * props.producto.cantidadVendida).toFixed(2)}S/
+                    S/ {(precio * props.producto.cantidadVendida).toFixed(2)}
                 </div>
             </div>
             <hr />

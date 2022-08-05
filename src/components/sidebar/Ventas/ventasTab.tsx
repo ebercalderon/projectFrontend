@@ -176,7 +176,7 @@ const FilaVenta = (props: { venta: Venta }) => {
             </div>
             <div className="py-3 border-gray-200">
                 <p className="whitespace-no-wrap">
-                    {props.venta.precioVentaTotal.toFixed(2)}S/
+                    S/ {props.venta.precioVentaTotal.toFixed(2)}
                 </p>
             </div>
         </div>

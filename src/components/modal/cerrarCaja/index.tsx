@@ -148,29 +148,28 @@ export const CerrarCaja = (props: { Empleado?: SesionEmpleado, setModalOpen: Fun
 
                                 <div className="flex gap-2">
                                     <p>Ventas totales: </p>
-                                    <p>{(Number(TotalEfectivo) + Number(TotalTarjeta)).toFixed(2)}S/</p>
+                                    <p>S/ {(Number(TotalEfectivo) + Number(TotalTarjeta)).toFixed(2)}</p>
                                 </div>
 
                                 <div className="flex gap-2">
                                     <p>Ventas en efectivo: </p>
-                                    <p>{Number(TotalEfectivo).toFixed(2)}S/</p>
+                                    <p>S/ {Number(TotalEfectivo).toFixed(2)}</p>
                                 </div>
 
                                 <div className="flex gap-2">
                                     <p>Ventas en tarjeta: </p>
-                                    <p>{Number(TotalTarjeta).toFixed(2)}S/</p>
+                                    <p>S/ {Number(TotalTarjeta).toFixed(2)}</p>
                                 </div>
 
                                 <div className="flex gap-2">
                                     <p>Dinero total esperado en caja: </p>
-                                    <p>{Number(TotalPrevistoEnCaja).toFixed(2)}S/</p>
+                                    <p>S/ {Number(TotalPrevistoEnCaja).toFixed(2)}</p>
                                 </div>
 
                                 <div className="flex gap-2 items-center">
-                                    <p>Dinero total real en caja: </p>
+                                    <p>Dinero total real en caja: S/ </p>
                                     <input className="rounded-lg border p-1 outline-blue-500 text-right"
                                         onChange={(e) => { SetTotalReal(e.target.value) }} value={TotalRealEnCaja} />
-                                    S/
                                     <div className="flex hover:bg-blue-200 rounded-full cursor-pointer w-8 h-8 items-center justify-center"
                                         onClick={() => { setContarCaja((isOpen) => !isOpen) }}>
                                         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="#4b5563" strokeWidth={2}>
@@ -180,10 +179,9 @@ export const CerrarCaja = (props: { Empleado?: SesionEmpleado, setModalOpen: Fun
                                 </div>
 
                                 <div className="flex gap-2 items-center">
-                                    <p>Dinero retirado: </p>
+                                    <p>Dinero retirado: S/ </p>
                                     <input className="rounded-lg border p-1 outline-blue-500 text-right"
                                         onChange={(e) => { setDineroRetirado(ValidatePositiveFloatingNumber(e.target.value)) }} value={DineroRetirado} />
-                                    S/
                                 </div>
 
                             </div>

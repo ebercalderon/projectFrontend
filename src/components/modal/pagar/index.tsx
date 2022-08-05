@@ -227,15 +227,15 @@ export const ModalPagar = (props: { PagoCliente: CustomerPaymentInformation, han
                                 <div className="grid grid-cols-3 text-lg text-center justify-center">
                                     <div>
                                         <div>Total a pagar</div>
-                                        <div className="text-4xl font-semibold">{PagoDelCliente.precioTotal.toFixed(2)}S/</div>
+                                        <div className="text-4xl font-semibold">S/ {PagoDelCliente.precioTotal.toFixed(2)}</div>
                                     </div>
                                     <div>
                                         <div>Entregado</div>
-                                        <div className="text-4xl font-semibold">{isNaN(Number(dineroEntregado) + Number(dineroEntregadoTarjeta)) ? "0.00" : (Number(dineroEntregado) + Number(dineroEntregadoTarjeta)).toFixed(2)}S/</div>
+                                        <div className="text-4xl font-semibold">{isNaN(Number(dineroEntregado) + Number(dineroEntregadoTarjeta)) ? "0.00" : (Number(dineroEntregado) + Number(dineroEntregadoTarjeta)).toFixed(2)}</div>
                                     </div>
                                     <div>
                                         <div>{Number(cambio.toFixed(2)) < 0 ? 'Pendiente' : 'Cambio'}</div>
-                                        <div className={`text-4xl font-semibold ${cambio < 0 ? "text-red-500" : "text-green-500"}`}>{cambio.toFixed(2)}S/</div>
+                                        <div className={`text-4xl font-semibold ${cambio < 0 ? "text-red-500" : "text-green-500"}`}>{cambio.toFixed(2)}</div>
                                     </div>
                                 </div>
                             </div>

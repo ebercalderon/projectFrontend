@@ -235,7 +235,7 @@ const FilaCierre = (props: { cierre: Cierre, tpvs: ITPV[] }) => {
                     {props.cierre.cerradoPor.nombre}
                 </div>
                 <div className="w-1/4 text-right">
-                    {props.cierre.ventasTotales.toFixed(2)}S/
+                    S/ {props.cierre.ventasTotales.toFixed(2)}
                 </div>
             </div>
             <AnimatePresence>

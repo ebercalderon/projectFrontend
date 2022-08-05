@@ -11,7 +11,7 @@ const ProductCard = React.memo((props: { Prod: Producto }) => {
                 bg-white hover:shadow-2xl hover:bg-blue-400 hover:border-blue-700 hover:text-white">
             <div className="flex flex-col justify-between divide-y-2 divide-slate-200 p-2 h-full w-full">
                 <span title={`${props.Prod.nombre}`} className="lg:text-base sm:text-base xs:text-sm text-left line-clamp-3">{props.Prod.nombre}</span>
-                <div className="lg:text-base sm:text-base xs:text-sm font-semibold text-right ">{Number(props.Prod.precioVenta).toFixed(2)}S/</div>
+                <div className="lg:text-base sm:text-base xs:text-sm font-semibold text-right ">S/ {Number(props.Prod.precioVenta).toFixed(2)}</div>
             </div>
         </motion.div>
     );
@@ -44,11 +44,11 @@ export const ProductSelectedCard = React.memo((props: { producto: ProductoVendid
                                 <p className="text-sm truncate font-semibold">{props.producto.nombre}</p>
                                 {
                                     isNaN(Number(props.producto.dto)) || Number(props.producto.dto) === 0 ?
-                                        <p className="text-xs block">{(Number(props.producto.precioVenta) * Number(props.producto.cantidadVendida)).toFixed(2)}S/</p>
+                                        <p className="text-xs block">S/ {(Number(props.producto.precioVenta) * Number(props.producto.cantidadVendida)).toFixed(2)}</p>
                                         :
                                         <div className="flex-grow-0">
-                                            <p className="text-xs inline-block line-through text-red-700">{(Number(props.producto.precioVenta) * Number(props.producto.cantidadVendida)).toFixed(2)}S/</p>
-                                            <span className="pl-2 text-sm font-semibold inline-block">{((Number(props.producto.precioVenta) * Number(props.producto.cantidadVendida)) * (1 - (Number(props.producto.dto) / 100))).toFixed(2)}S/</span>
+                                            <p className="text-xs inline-block line-through text-red-700">S/ {(Number(props.producto.precioVenta) * Number(props.producto.cantidadVendida)).toFixed(2)}</p>
+                                            <span className="pl-2 text-sm font-semibold inline-block">S/ {((Number(props.producto.precioVenta) * Number(props.producto.cantidadVendida)) * (1 - (Number(props.producto.dto) / 100))).toFixed(2)}</span>
                                         </div>
                                 }
                             </div>
