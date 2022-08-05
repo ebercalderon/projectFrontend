@@ -3,27 +3,22 @@ import { motion } from "framer-motion";
 const AyudaPage = () => {
     return (
         <div className="flex flex-col h-full bg-white w-full pb-20 rounded-r-2xl rounded-b-2xl shadow-lg p-4">
-            <span>
-                ¡Buenas! ERPSolution es un trabajo final de máster, desarrollado por solo una persona cuyo tiempo es bastante escaso.
 
-            </span>
             <span>
-                Este proyecto se encuentra en fase de desarrollo. No es perfecto, no es compacto y no está testeado, pero es gratis.
+                Este proyecto se encuentra en fase de desarrollo.
             </span>
-            <span>
-                Y lo mejor: está en continuo desarrollo
-            </span>
+
             <br />
 
             <span>
-                Todas las dudas, sugerencias e indicaciones lo podéis dejar como un issue en el GitHub de este repositorio
+                Todas las dudas, sugerencias e indicaciones lo puedes dejar como un issue en el GitHub de este repositorio
 
             </span><br />
-            <a className="text-blue-500 italic" href="https://github.com/ebercalderon/projectWeb">
-                https://github.com/ebercalderon/projectWeb
+            <a className="text-blue-500 italic" href="https://github.com/ebercalderon/projectFrontend">
+                https://github.com/ebercalderon/projectFrontend
             </a><br />
-            <a className="text-blue-500 italic" href="https://github.com/ebercalderon/projectBack">
-                https://github.com/ebercalderon/projectBack
+            <a className="text-blue-500 italic" href="https://github.com/ebercalderon/projectBackend">
+                https://github.com/ebercalderon/projectBackend
             </a>
             <div className="flex w-full h-full justify-center items-center"
             >
