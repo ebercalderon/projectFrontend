@@ -252,7 +252,7 @@ const FilaCierre = (props: { cierres: Cierre[], setAllCierres: Function, cierre:
                     {currentCierre.cerradoPor.nombre}
                 </div>
                 <div className="w-1/4 text-right">
-                    S/ {props.cierre.ventasTotales.toFixed(2)}
+                    S/ {currentCierre.ventasTotales.toFixed(2)}
                 </div>
             </div>
             <AnimatePresence>

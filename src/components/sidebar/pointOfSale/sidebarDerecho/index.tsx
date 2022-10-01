@@ -385,11 +385,11 @@ const SidebarDerecho = React.memo((props: {
                                 :
                                 <>
                                     <motion.button className={`bg-blue-400 h-10 xl:h-12 shadow rounded-lg text-white focus:outline-none`}
-                                        onClick={() => notifyError("No se puede realizar una venta con un producto de 0.00S/ ")}>
+                                        onClick={() => notifyError("No se puede realizar una venta con un producto de S/ 0.00")}>
                                         PAGAR
                                     </motion.button>
                                     <motion.button className="bg-blue-400 h-10 xl:h-12 shadow rounded-lg text-white focus:outline-none"
-                                        onClick={() => notifyError("No se puede realizar una venta con un producto de 0.00S/ ")}>
+                                        onClick={() => notifyError("No se puede realizar una venta con un producto de S/ 0.00")}>
                                         COBRO RAPIDO
                                     </motion.button>
                                 </>

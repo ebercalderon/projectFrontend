@@ -118,7 +118,7 @@ const GenerarFilaProducto = (props: { numFila: number, nombreProducto: string, c
                 {props.cantidad}
             </div>
             <div className="w-1/5 text-center">
-                {(props.precio * props.cantidad).toFixed(2)}S/ 
+                S/ {(props.precio * props.cantidad).toFixed(2)}
             </div>
         </div>
     );
@@ -145,7 +145,7 @@ const GetBaseImponible = (props: { productosVendidos: ProductoVendido[] }) => {
                         <div key={`BImponible-${index}`} className="flex justify-around w-full">
                             <div className="flex flex-col">
                                 <span>Base imp.</span>
-                                <span>{BImponible.toFixed(2)}S/ </span>
+                                <span>S/ {BImponible.toFixed(2)}</span>
                             </div>
                             <div className="flex flex-col">
                                 <span>%IVA</span>
@@ -153,7 +153,7 @@ const GetBaseImponible = (props: { productosVendidos: ProductoVendido[] }) => {
                             </div>
                             <div className="flex flex-col">
                                 <span>IVA</span>
-                                <span>{valorIVA.toFixed(2)}S/ </span>
+                                <span>S/ {valorIVA.toFixed(2)}</span>
                             </div>
                         </div>
                     )

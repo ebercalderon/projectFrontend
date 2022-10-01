@@ -80,7 +80,7 @@ const VerCierre = (props: { showModal: Function, cierre: Cierre, setCierre: Func
                                         Ventas en tarjeta: S/ {props.cierre.ventasTarjeta.toFixed(2)}
                                     </span>
                                     <span>
-                                        Beneficio: S/ {props.cierre.beneficio.toFixed(2)}
+                                        Caja inicial: S/ {props.cierre.cajaInicial.toFixed(2)}
                                     </span>
                                     <span>
                                         Caja final esperada: S/ {props.cierre.dineroEsperadoEnCaja.toFixed(2)}

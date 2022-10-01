@@ -76,10 +76,10 @@ const GenerarFilaProductoDevuelto = (props: { numFila: number, productoDevuelto:
                 {props.productoDevuelto.cantidadDevuelta}
             </div>
             <div className="w-1/5 text-right">
-                S/ {props.productoDevuelto.precioFinal}
+                S/ {props.productoDevuelto.precioFinal.toFixed(2)}
             </div>
             <div className="w-1/5 text-right">
-                S/ {props.productoDevuelto.cantidadDevuelta * props.productoDevuelto.precioFinal}
+                S/ {(props.productoDevuelto.cantidadDevuelta * props.productoDevuelto.precioFinal).toFixed(2)}
             </div>
         </div>
     );
