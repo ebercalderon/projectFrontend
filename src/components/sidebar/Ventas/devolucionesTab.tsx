@@ -57,7 +57,7 @@ const DevolucionesPage = () => {
     return (
         <div className="flex flex-col h-full w-full bg-white rounded-b-2xl rounded-r-2xl p-4 shadow-lg border-x">
             <div className="flex w-full pb-4 gap-10 justify-end">
-                <DateRange dateRange={dateRange} setDateRange={setDateRange} endDate={endDate} startDate={startDate} />
+                <DateRange titulo="Fecha" dateRange={dateRange} setDateRange={setDateRange} endDate={endDate} startDate={startDate} />
 
                 <div className="flex gap-2">
                     <input autoFocus={true} className="rounded-lg border appearance-none shadow-lg w-72 xl:w-96 h-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-600" placeholder="ID del reembolso..."
@@ -156,7 +156,7 @@ const FilaReembolso = (props: { devolucion: Devolucion }) => {
             </div>
             <div className="py-3 border-gray-200 text-lg">
                 <p className="whitespace-no-wrap">
-                    S/ {props.devolucion.dineroDevuelto.toFixed(2)}
+                    {props.devolucion.dineroDevuelto.toFixed(2)}S/ 
                 </p>
             </div>
         </div>

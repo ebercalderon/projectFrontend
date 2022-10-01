@@ -10,7 +10,7 @@ const DownloadProductsFile = (props: { productos: Producto[] }) => {
         const worksheet = XLSX.utils.json_to_sheet(props.productos);
         const workbook = XLSX.utils.book_new();
         XLSX.utils.book_append_sheet(workbook, worksheet, "Hoja1");
-        XLSX.writeFile(workbook, "Productos.csv");
+        XLSX.writeFile(workbook, "Productos.xlsx");
     }
 
     if (Empleado.rol === Roles.Cajero) {
@@ -21,7 +21,9 @@ const DownloadProductsFile = (props: { productos: Producto[] }) => {
 
     return (
         <button onClick={DownloadProducts}>
-            <label className="flex flex-shrink-0 justify-center gap-2 w-28 py-2 text-base font-semibold cursor-pointer text-white bg-cyan-500 rounded-lg shadow-md hover:bg-cyan-600 focus:outline-none focus:ring-2 focus:ring-amber-600 focus:ring-offset-2 focus:ring-offset-blue-200">
+            <label className="flex flex-shrink-0 justify-center gap-2 w-28 py-2 text-base font-semibold cursor-pointer 
+                text-white bg-cyan-500 rounded-lg shadow-md hover:bg-cyan-600 focus:outline-none focus:ring-2
+                focus:ring-amber-600 focus:ring-offset-2 focus:ring-offset-blue-200">
                 <span>
                     Exportar
                 </span>

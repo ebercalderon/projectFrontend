@@ -252,6 +252,7 @@ export const QUERY_SALES = `
     query Ventas($find: VentasFind) {
         ventas(find: $find) {
             _id
+            numFactura
             dineroEntregadoEfectivo
             dineroEntregadoTarjeta
             descuentoEfectivo
@@ -548,6 +549,15 @@ mutation UpdateVenta($id: ID!, $precioVentaTotal: Float!, $tipo: String, $client
     successful
     _id
     createdAt
+  }
+}
+`
+
+export const DELETE_CIERRE = `
+mutation DeleteCierreTPV($id: ID!) {
+  deleteCierreTPV(_id: $id) {
+    message
+    successful
   }
 }
 `

@@ -59,6 +59,7 @@ function CreateSale(s: any): Venta | undefined {
         let venta: Venta = {
             _id: s._id,
             productos: CreateProductoVendidoList(s.productos),
+            numFactura: s.numFactura,
             dineroEntregadoEfectivo: s.dineroEntregadoEfectivo,
             dineroEntregadoTarjeta: s.dineroEntregadoTarjeta,
             precioVentaTotalSinDto: s.preprecioVentaTotalSinDto,
@@ -342,6 +343,8 @@ export function CreateSummary(s: any): Summary | undefined {
             ivaPagado: s.ivaPagado,
             mediaCantidadVenida: s.mediaCantidadVenida,
             mediaVentas: s.mediaVentas,
+            ventaMinima: s.ventaMinima,
+            ventaMaxima: s.ventaMaxima,
             numVentas: s.numVentas,
             totalVentas: s.totalVentas,
             ventasPorHora: CreateVentasPorHoraList(s.ventasPorHora),
@@ -386,4 +389,12 @@ function CreateVentasPorHora(s: any): VentasPorHora | undefined {
     catch (e) {
         return undefined;
     }
+}
+
+export const CalcularBaseImponiblePorIva = (productosVendidos: ProductoVendido[], iva: number): [number, number] => {
+    const prodsFiltrados = productosVendidos.filter((p) => p.iva === iva);
+    const bImponible = prodsFiltrados.reduce((prev: number, current: ProductoVendido) => {
+        return prev + ((current.precioFinal / (1 + (current.iva / 100))) * current.cantidadVendida)
+    }, 0);
+    return [bImponible, bImponible * (iva / 100)]
 }

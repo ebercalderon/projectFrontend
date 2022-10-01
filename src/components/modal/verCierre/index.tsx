@@ -7,10 +7,12 @@ import { In } from "../../../utils/animations";
 import GenerateQrBase64 from "../../../utils/generateQr";
 import CierrePrintable from "../../printable/cierrePrintable";
 import { Backdrop } from "../backdrop";
+import BorrarCierreModal from "../borrarCierreModal";
 
-const VerCierre = (props: { showModal: Function, cierre: Cierre, tpv: string }) => {
-    const componentRef = useRef(null);
+const VerCierre = (props: { showModal: Function, cierre: Cierre, setCierre: Function, tpv: string }) => {
     const [qrImage, setQrImage] = useState<string>();
+    const [showModalDelete, setModalDelete] = useState<boolean>(false);
+    const componentRef = useRef(null);
 
     useEffect(() => {
         const abortController = new AbortController();
@@ -20,7 +22,6 @@ const VerCierre = (props: { showModal: Function, cierre: Cierre, tpv: string }) 
         }
 
         GetQrImage();
-
         return (() => {
             abortController.abort();
         });
@@ -50,78 +51,79 @@ const VerCierre = (props: { showModal: Function, cierre: Cierre, tpv: string }) 
                 >
                     <div className="flex flex-col w-full h-full">
                         <div className="text-2xl">
-                            Cierre de {fechaCierre}
-                            <div className="flex flex-col gap-1 pt-4 text-base">
+                            <div className="flex w-full justify-between">
                                 <span>
-                                    ID: {props.cierre._id}
+                                    Cierre de {fechaCierre}
                                 </span>
-                                <span>
-                                    TPV: {props.tpv}
-                                </span>
-                                <span>
-                                    Venta total: S/ {props.cierre.ventasTotales.toFixed(2)}
-                                </span>
-                                <span>
-                                    Ventas en efectivo: S/ {props.cierre.ventasEfectivo.toFixed(2)}
-                                </span>
-                                <span>
-                                    Ventas en tarjeta: S/ {props.cierre.ventasTarjeta.toFixed(2)}
-                                </span>
-                                {
-                                    props.cierre.beneficio &&
-                                    props.cierre.beneficio > 0 &&
+                                <div className="hover:text-red-500 cursor-pointer"
+                                    onClick={() => { setModalDelete(true) }}>
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <span className="text-base">
+                                ID: {props.cierre._id}
+                            </span>
+                            <div className="grid grid-cols-2 pt-2">
+                                <div className="flex flex-col gap-1 text-base">
+                                    <span>
+                                        TPV: {props.tpv}
+                                    </span>
+                                    <span>
+                                        Venta total: S/ {props.cierre.ventasTotales.toFixed(2)}
+                                    </span>
+                                    <span>
+                                        Ventas en efectivo: S/ {props.cierre.ventasEfectivo.toFixed(2)}
+                                    </span>
+                                    <span>
+                                        Ventas en tarjeta: S/ {props.cierre.ventasTarjeta.toFixed(2)}
+                                    </span>
                                     <span>
                                         Beneficio: S/ {props.cierre.beneficio.toFixed(2)}
                                     </span>
-                                }
-                                <span>
-                                    Caja inicial: S/ {props.cierre.cajaInicial.toFixed(2)}
-                                </span>
-                                <span>
-                                    Caja final esperada: S/ {props.cierre.dineroEsperadoEnCaja.toFixed(2)}
-                                </span>
-                                <span>
-                                    Caja final real: S/ {props.cierre.dineroRealEnCaja.toFixed(2)}
-                                </span>
-                                <span>
-                                    Dinero retirado: S/ {props.cierre.dineroRetirado.toFixed(2)}
-                                </span>
-                                <span>
-                                    Fondo de caja dejado: S/ {props.cierre.fondoDeCaja.toFixed(2)}
-                                </span>
-                                <span>
-                                    Abierto por: {props.cierre.abiertoPor.nombre}
-                                </span>
-                                <span>
-                                    Fecha de apertura: {fechaApertura}
-                                </span>
-                                <span>
-                                    Cerrado por: {props.cierre.cerradoPor.nombre}
-                                </span>
-                                <span>
-                                    Fecha de cierre: {fechaCierre}
-                                </span>
+                                    <span>
+                                        Caja final esperada: S/ {props.cierre.dineroEsperadoEnCaja.toFixed(2)}
+                                    </span>
+                                    <span>
+                                        Caja final real: S/ {props.cierre.dineroRealEnCaja.toFixed(2)}
+                                    </span>
+                                </div>
+                                <div className="flex flex-col gap-1 text-base">
+                                    <span>
+                                        Dinero retirado: S/ {props.cierre.dineroRetirado.toFixed(2)}
+                                    </span>
+                                    <span>
+                                        Fondo de caja dejado: S/ {props.cierre.fondoDeCaja.toFixed(2)}
+                                    </span>
+                                    <span>
+                                        Abierto por: {props.cierre.abiertoPor.nombre}
+                                    </span>
+                                    <span>
+                                        Fecha de apertura: {fechaApertura}
+                                    </span>
+                                    <span>
+                                        Cerrado por: {props.cierre.cerradoPor.nombre}
+                                    </span>
+                                    <span>
+                                        Fecha de cierre: {fechaCierre}
+                                    </span>
+                                </div>
                             </div>
                         </div>
                         <div className="flex w-full h-full gap-4 justify-around items-end text-white">
                             <button className="w-1/2 h-12 rounded-xl bg-red-500 hover:bg-red-600 shadow-lg" onClick={() => { props.showModal(false) }}>
                                 Cerrar
                             </button>
-                            {
-                                qrImage ?
-                                    <button className="w-1/2 h-12 rounded-xl bg-blue-500 hover:bg-blue-600 shadow-lg" onClick={() => { handlePrint() }}>
-                                        Imprimir
-                                    </button>
-                                    :
-                                    <div className="flex justify-center items-center w-1/2 h-12 rounded-xl bg-blue-400 cursor-default shadow-lg" >
-                                        <span>
-                                            Imprimir
-                                        </span>
-                                    </div>
-                            }
+                            <button className="w-1/2 h-12 rounded-xl bg-blue-500 hover:bg-blue-600 shadow-lg" onClick={() => { handlePrint() }}>
+                                Imprimir
+                            </button>
                         </div>
                         {
-                            qrImage &&
+                            showModalDelete &&
+                            <BorrarCierreModal cierre={props.cierre} showCierreModal={props.showModal} setCierre={props.setCierre} showModal={setModalDelete} />
+                        }
+                        {
                             <div style={{ display: "none" }}>
                                 <CierrePrintable
                                     ref={componentRef}
