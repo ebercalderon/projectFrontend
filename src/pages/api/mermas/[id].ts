@@ -1,14 +1,8 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import {
-  ADD_PRODUCTOS_FILE,
-  DELETE_PRODUCT,
-  QUERY_PRODUCT,
-  QUERY_PRODUCTS,
-  UPDATE_PRODUCT,
-} from "../../../utils/querys";
+import { DELETE_MERMA, QUERY_MERMA, QUERY_MERMAS, UPDATE_MERMA } from "../../../utils/querys";
 import GQLQuery, { GQLMutate } from "../../../utils/serverFetcher";
 import queryString from "query-string";
-import { Producto } from "../../../tipos/Producto";
+import { Merma } from "../../../tipos/Merma";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse): Promise<void> => {
   try {
@@ -22,23 +16,18 @@ const handler = async (req: NextApiRequest, res: NextApiResponse): Promise<void>
     const method = req.method;
     const query = queryString.parse(req.query.id.toString());
     switch (method) {
-      case "POST":
-        if (req.query.id === "file") {
-          return await AddProductosFromFile(req, res);
-        }
-
       case "GET":
         if (Object.keys(query).length > 0) {
-          return await GetProductosFromQuery(query, res);
+          return await GetMermaFromQuery(query, res);
         } else {
-          return await GetProductoFromId(req, res);
+          return await GetMermaFromId(req, res);
         }
 
       case "PUT":
-        return await UpdateProducto(req, res);
+        return await UpdateMerma(req, res);
 
       case "DELETE":
-        return await DeleteProducto(req, res);
+        return await DeleteMerma(req, res);
     }
   } catch (err) {
     console.log(err);
@@ -46,9 +35,9 @@ const handler = async (req: NextApiRequest, res: NextApiResponse): Promise<void>
   }
 };
 
-const GetProductoFromId = async (req: NextApiRequest, res: NextApiResponse) => {
+const GetMermaFromId = async (req: NextApiRequest, res: NextApiResponse) => {
   const serverRes = await GQLQuery({
-    query: QUERY_PRODUCT,
+    query: QUERY_MERMAS,
     variables: {
       find: {
         _id: req.query.id,
@@ -60,84 +49,68 @@ const GetProductoFromId = async (req: NextApiRequest, res: NextApiResponse) => {
 
   return res.status(serverRes.ok ? 200 : 300).json({
     message: data.message,
-    data: data.producto,
+    data: data.merma,
     successful: data.successful ? data.successful : serverRes.ok,
   });
 };
 
-const GetProductosFromQuery = async (userQuery: queryString.ParsedQuery<string>, res: NextApiResponse) => {
+const GetMermaFromQuery = async (userQuery: queryString.ParsedQuery<string>, res: NextApiResponse) => {
   if (!userQuery.query) {
     res.status(300).json({ message: `La query no puede estar vacía`, successful: false });
   }
 
   const serverRes = await GQLQuery({
-    query: QUERY_PRODUCTS,
+    query: QUERY_MERMAS,
     variables: {
       find: {
-        query: userQuery.query,
+        fechaInicial: userQuery.fechaFinal || null,
+        fechaFinal: userQuery.fechaFinal || null,
+        query: userQuery.query || null,
       },
     },
   });
   const apiResponse = await serverRes.json();
   const data = JSON.parse(apiResponse.data);
 
-  return res.status(serverRes.ok ? 200 : 300).json({ productos: data.productos });
+  return res.status(serverRes.ok ? 200 : 300).json({ mermas: data.mermas });
 };
 
-const AddProductosFromFile = async (req: NextApiRequest, res: NextApiResponse) => {
+const DeleteMerma = async (req: NextApiRequest, res: NextApiResponse) => {
   const apiResponse = await (
     await GQLMutate({
-      mutation: ADD_PRODUCTOS_FILE,
-      variables: {
-        csv: JSON.stringify(req.body),
-      },
-    })
-  ).json();
-
-  const data = JSON.parse(apiResponse.data).addProductosFile;
-  return res.status(data.successful ? 200 : 300).json({ message: data.message, successful: data.successful });
-};
-
-const DeleteProducto = async (req: NextApiRequest, res: NextApiResponse) => {
-  const apiResponse = await (
-    await GQLMutate({
-      mutation: DELETE_PRODUCT,
+      mutation: DELETE_MERMA,
       variables: {
         id: req.query.id,
       },
     })
   ).json();
 
-  const data = JSON.parse(apiResponse.data).deleteProducto;
+  const data = JSON.parse(apiResponse.data).deleteMerma;
   return res.status(data.successful ? 200 : 300).json({ message: data.message, successful: data.successful });
 };
 
-const UpdateProducto = async (req: NextApiRequest, res: NextApiResponse) => {
+const UpdateMerma = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
-    const prod: Producto = req.body;
+    const merma: Merma = req.body;
     const apiResponse = await (
       await GQLMutate({
-        mutation: UPDATE_PRODUCT,
+        mutation: UPDATE_MERMA,
         variables: {
-          producto: {
-            _id: prod._id,
-            nombre: prod.nombre,
-            proveedor: prod.proveedor,
-            familia: prod.familia,
-            precioVenta: prod.precioVenta,
-            precioCompra: prod.precioCompra,
-            iva: prod.iva,
-            margen: prod.margen,
-            ean: prod.ean,
-            cantidad: prod.cantidad,
-            cantidadRestock: prod.cantidadRestock,
-            alta: prod.alta,
+          merma: {
+            productos: [
+              {
+                _id: null,
+                cantidad: null,
+                motivo: null,
+              },
+            ],
+            empleadoId: null,
           },
         },
       })
     ).json();
 
-    const data = JSON.parse(apiResponse.data).updateProducto;
+    const data = JSON.parse(apiResponse.data).updateMerma;
     return res.status(data.successful ? 200 : 300).json({ message: data.message, successful: data.successful });
   } catch (e) {
     console.log(e);
